@@ -12,11 +12,20 @@
              xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
              xmlns:tns="http://www.jboss.org/drools">
 
+  <itemDefinition id="_consumerId" structureRef="String" />
+  <itemDefinition id="null" />
+
   <process processType="Private" isExecutable="true" id="com.javacodegeeks.drools" name="Drools Work Flow Example" tns:packageName="com.javacodegeeks.drools" >
 
+    <extensionElements>
+     <tns:import name="java.lang.String" />
+    </extensionElements>
+    <!-- process variables -->
+    <property id="consumerId" itemSubjectRef="_consumerId"/>
+
     <!-- nodes -->
-    <scriptTask id="_2" name="Action1" >
-      <script>System.out.println("Action1");</script>
+    <scriptTask id="_2" name="ActionCIA" >
+      <script>System.out.println("ActionCIA");</script>
     </scriptTask>
     <startEvent id="_1"  isInterrupting="true">
     </startEvent>
@@ -33,7 +42,8 @@
     <scriptTask id="_jbpm-unique-5" name="Action3" >
       <script>System.out.println("Action3")</script>
     </scriptTask>
-    <businessRuleTask id="_jbpm-unique-6" name="A" g:ruleFlowGroup="Group1" >
+    <businessRuleTask id="_jbpm-unique-6" name="A" g:ruleFlowGroup="Group1" 
+ implementation="http://www.jboss.org/drools/rule" >
       <ioSpecification>
         <inputSet>
         </inputSet>
@@ -43,8 +53,8 @@
     </businessRuleTask>
 
     <!-- connections -->
-    <sequenceFlow id="_jbpm-unique-1-_2" sourceRef="_jbpm-unique-1" targetRef="_2" name="constraint" tns:priority="1" >
-      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return true;</conditionExpression>
+    <sequenceFlow id="_jbpm-unique-1-_2" sourceRef="_jbpm-unique-1" targetRef="_2" name="constraintCIA" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return consumerId.equals("CIA");</conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="_jbpm-unique-6-_3" sourceRef="_jbpm-unique-6" targetRef="_3" />
     <sequenceFlow id="_1-_jbpm-unique-1" sourceRef="_1" targetRef="_jbpm-unique-1" />
@@ -61,7 +71,7 @@
   <bpmndi:BPMNDiagram>
     <bpmndi:BPMNPlane bpmnElement="com.javacodegeeks.drools" >
       <bpmndi:BPMNShape bpmnElement="_2" >
-        <dc:Bounds x="222" y="110" width="80" height="48" />
+        <dc:Bounds x="222" y="110" width="148" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_1" >
         <dc:Bounds x="140" y="38" width="48" height="48" />
@@ -86,7 +96,7 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-1-_2" >
         <di:waypoint x="165" y="225" />
-        <di:waypoint x="262" y="134" />
+        <di:waypoint x="296" y="134" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-6-_3" >
         <di:waypoint x="593" y="228" />
@@ -97,7 +107,7 @@
         <di:waypoint x="165" y="225" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_2-_jbpm-unique-3" >
-        <di:waypoint x="262" y="134" />
+        <di:waypoint x="296" y="134" />
         <di:waypoint x="363" y="222" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-4-_jbpm-unique-3" >
