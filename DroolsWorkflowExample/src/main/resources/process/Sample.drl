@@ -1,6 +1,8 @@
 package com.javacodegeeks.drools
  
 import com.javacodegeeks.drools.Message;
+
+global String consumerId;
  
 rule "One"
 ruleflow-group "Group1"
@@ -8,6 +10,7 @@ ruleflow-group "Group1"
         m : Message( status == Message.HELLO, myMessage : message )
     then
         System.out.println( myMessage );
+        System.out.println("consumerId1: " + consumerId);
         m.setMessage( "Goodbye cruel world" );
         m.setStatus( Message.GOODBYE );
         update( m );
@@ -18,5 +21,6 @@ ruleflow-group "Group1"
     when
         Message( status == Message.GOODBYE, myMessage : message )
     then
+        System.out.println("consumerId2: " + consumerId);    
         System.out.println( myMessage );
 end

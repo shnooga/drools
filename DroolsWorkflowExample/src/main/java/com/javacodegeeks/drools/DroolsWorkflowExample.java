@@ -18,6 +18,11 @@ public class DroolsWorkflowExample {
         	Message message = new Message();
             message.setMessage("Rule is fired");
             message.setStatus(Message.HELLO);
+            
+            
+String consumerId ="CIA";
+kSession.setGlobal("consumerId", consumerId);
+            
             kSession.insert(message);
             
             // start a new process instance
