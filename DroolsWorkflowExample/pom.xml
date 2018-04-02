@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>DroolsWorkFlowExample</groupId>
-  <artifactId>com.javacodegeeks.drools</artifactId>
-  <version>1.0</version>
-  	<dependencies>
+	<groupId>DroolsWorkFlowExample</groupId>
+	<artifactId>com.javacodegeeks.drools</artifactId>
+	<version>1.0</version>
+	<dependencies>
 		<dependency>
 			<groupId>org.drools</groupId>
 			<artifactId>knowledge-api</artifactId>
@@ -37,20 +37,43 @@
 			<artifactId>jbpm-bpmn2</artifactId>
 			<version>${jbpm.version}</version>
 		</dependency>
-	  <dependency>
-	    <groupId>org.slf4j</groupId>
-	    <artifactId>slf4j-api</artifactId>
-	    <version>1.7.5</version>
-	  </dependency>
-	  <!-- The SLF4J Log4J implementation. This contains the StaticLoggerBinder class. -->
-	  <dependency>
-	    <groupId>org.slf4j</groupId>
-	    <artifactId>slf4j-log4j12</artifactId>
-	    <version>1.7.5</version>
-	  </dependency>		
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+		<!-- The SLF4J Log4J implementation. This contains the StaticLoggerBinder 
+			class. -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.5</version>
+		</dependency>
 	</dependencies>
 	<properties>
 		<drools.version>6.2.0.Final</drools.version>
 		<jbpm.version>6.2.0.Final</jbpm.version>
 	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.6.0</version>
+				<configuration>
+					<mainClass>com.javacodegeeks.drools.DroolsWorkflowExample</mainClass>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>

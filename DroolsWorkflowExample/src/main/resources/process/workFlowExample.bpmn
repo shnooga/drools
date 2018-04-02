@@ -24,7 +24,7 @@
     <property id="consumerId" itemSubjectRef="null"/>
 
     <!-- nodes -->
-    <scriptTask id="_2" name="ActionCIA" >
+    <scriptTask id="_2" name="CIA RuleFlowGroup" >
       <script>System.out.println("ActionCIA");</script>
     </scriptTask>
     <startEvent id="_1"  isInterrupting="true">
@@ -34,15 +34,15 @@
     </endEvent>
     <exclusiveGateway id="_jbpm-unique-1" name="Gateway" gatewayDirection="Diverging" >
     </exclusiveGateway>
-    <parallelGateway id="_jbpm-unique-3" name="Gateway" gatewayDirection="Converging" >
-    </parallelGateway>
-    <scriptTask id="_jbpm-unique-4" name="ActioneEye" >
+    <exclusiveGateway id="_jbpm-unique-3" name="Gateway" gatewayDirection="Converging" >
+    </exclusiveGateway>
+    <scriptTask id="_jbpm-unique-4" name="EyeFinityRuleFlowGroup" >
       <script>System.out.println("ActionEyeFinity");</script>
     </scriptTask>
-    <scriptTask id="_jbpm-unique-5" name="Action3" >
+    <scriptTask id="_jbpm-unique-5" name="CommonAction" >
       <script>System.out.println("Action3")</script>
     </scriptTask>
-    <businessRuleTask id="_jbpm-unique-6" name="A" g:ruleFlowGroup="Group1" 
+    <businessRuleTask id="_jbpm-unique-6" name="CommonRuleFlowGroup" g:ruleFlowGroup="Group1" 
  implementation="http://www.jboss.org/drools/rule" >
       <ioSpecification>
         <inputSet>
@@ -71,60 +71,60 @@
   <bpmndi:BPMNDiagram>
     <bpmndi:BPMNPlane bpmnElement="com.javacodegeeks.drools" >
       <bpmndi:BPMNShape bpmnElement="_2" >
-        <dc:Bounds x="213" y="108" width="148" height="48" />
+        <dc:Bounds x="313" y="292" width="148" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_1" >
-        <dc:Bounds x="140" y="38" width="48" height="48" />
+        <dc:Bounds x="247" y="72" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_3" >
-        <dc:Bounds x="669" y="204" width="48" height="48" />
+        <dc:Bounds x="262" y="681" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_jbpm-unique-1" >
-        <dc:Bounds x="141" y="201" width="48" height="48" />
+        <dc:Bounds x="246" y="174" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_jbpm-unique-3" >
-        <dc:Bounds x="339" y="198" width="48" height="48" />
+        <dc:Bounds x="257" y="422" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_jbpm-unique-4" >
-        <dc:Bounds x="204" y="278" width="169" height="48" />
+        <dc:Bounds x="76" y="288" width="169" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_jbpm-unique-5" >
-        <dc:Bounds x="429" y="200" width="80" height="48" />
+        <dc:Bounds x="242" y="513" width="80" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_jbpm-unique-6" >
-        <dc:Bounds x="553" y="204" width="80" height="48" />
+        <dc:Bounds x="196" y="596" width="182" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-1-_2" >
-        <di:waypoint x="165" y="225" />
-        <di:waypoint x="287" y="132" />
+        <di:waypoint x="270" y="198" />
+        <di:waypoint x="387" y="316" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-6-_3" >
-        <di:waypoint x="593" y="228" />
-        <di:waypoint x="693" y="228" />
+        <di:waypoint x="287" y="620" />
+        <di:waypoint x="286" y="705" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_1-_jbpm-unique-1" >
-        <di:waypoint x="164" y="62" />
-        <di:waypoint x="165" y="225" />
+        <di:waypoint x="271" y="96" />
+        <di:waypoint x="270" y="198" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_2-_jbpm-unique-3" >
-        <di:waypoint x="287" y="132" />
-        <di:waypoint x="363" y="222" />
+        <di:waypoint x="387" y="316" />
+        <di:waypoint x="281" y="446" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-4-_jbpm-unique-3" >
-        <di:waypoint x="288" y="302" />
-        <di:waypoint x="363" y="222" />
+        <di:waypoint x="160" y="312" />
+        <di:waypoint x="281" y="446" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-1-_jbpm-unique-4" >
-        <di:waypoint x="165" y="225" />
-        <di:waypoint x="288" y="302" />
+        <di:waypoint x="270" y="198" />
+        <di:waypoint x="160" y="312" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-3-_jbpm-unique-5" >
-        <di:waypoint x="363" y="222" />
-        <di:waypoint x="469" y="224" />
+        <di:waypoint x="281" y="446" />
+        <di:waypoint x="282" y="537" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-5-_jbpm-unique-6" >
-        <di:waypoint x="469" y="224" />
-        <di:waypoint x="593" y="228" />
+        <di:waypoint x="282" y="537" />
+        <di:waypoint x="287" y="620" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
